@@ -6,6 +6,15 @@ import { ImageContainer } from "../ImageContainer";
 import { PeopleInformation } from "../PeopleInformation";
 import { CreateNewUser } from "../CreateNewUser";
 
+const testPeople = {
+  nome: 'Matheus',
+  prof: 'Estudante',
+  hobbie: 'Jogar video Game',
+  idade: 19,
+  genero: 'M',
+  altura: 1.73
+}
+
 function App(){
   return(
     <>
@@ -15,7 +24,7 @@ function App(){
           <ImageContainer>
             <img src="https://images-na.ssl-images-amazon.com/images/I/71+mDoHG4mL.png" alt="" />
           </ImageContainer>
-          <PeopleInformation/>
+          <PeopleInformation People={testPeople}/>
           <CreateNewUser>Cadastrar usuário</CreateNewUser>
         </PeopleCard>
         <ListUsers>
