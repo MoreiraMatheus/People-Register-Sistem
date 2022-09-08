@@ -1,11 +1,7 @@
-import { ListUsers } from "../ListUsers";
 import { GlobalStyle } from "../GlobalStyle/GlobalStyle";
 import { PeopleCard } from "../PeopleCard";
+import { ListUsers } from "../ListUsers";
 import { PeopleSummary } from "../PeopleSummary";
-import { ImageContainer } from "../ImageContainer";
-import { PeopleInformation } from "../PeopleInformation";
-import { CreateNewUser } from "../CreateNewUser";
-import * as userImages from '../../services/importImages';
 
 const testPeople = {
   nome: 'Matheus',
@@ -21,15 +17,9 @@ function App(){
     <>
       <GlobalStyle/>
       <main>
-        <PeopleCard>
-          <ImageContainer>
-            <img src={userImages.woman} alt="" />
-          </ImageContainer>
-          <PeopleInformation People={testPeople}/>
-          <CreateNewUser>Cadastrar usuário</CreateNewUser>
-        </PeopleCard>
+        <PeopleCard People={testPeople}/>
         <ListUsers>
-          <PeopleSummary/>
+          <PeopleSummary People={testPeople}/>
         </ListUsers>
       </main>
     </>

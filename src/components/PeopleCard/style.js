@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PeopleCard = styled.div`
+export const Wrapper = styled.div`
     width: 60vw;
     height: 90vh;
     display: flex;
