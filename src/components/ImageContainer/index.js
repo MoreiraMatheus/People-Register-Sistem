@@ -7,10 +7,14 @@ export const ImageContainer = styled.div`
     padding: 2px;
     border-radius: 50%;
     position: absolute;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     img{
         width: inherit;
         height: inherit;
         border-radius: 50%;
+        border: 3px solid black;
     }
 `

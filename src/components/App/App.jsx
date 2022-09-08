@@ -5,6 +5,7 @@ import { PeopleSummary } from "../PeopleSummary";
 import { ImageContainer } from "../ImageContainer";
 import { PeopleInformation } from "../PeopleInformation";
 import { CreateNewUser } from "../CreateNewUser";
+import * as userImages from '../../services/importImages';
 
 const testPeople = {
   nome: 'Matheus',
@@ -22,21 +23,12 @@ function App(){
       <main>
         <PeopleCard>
           <ImageContainer>
-            <img src="https://images-na.ssl-images-amazon.com/images/I/71+mDoHG4mL.png" alt="" />
+            <img src={userImages.woman} alt="" />
           </ImageContainer>
           <PeopleInformation People={testPeople}/>
           <CreateNewUser>Cadastrar usuário</CreateNewUser>
         </PeopleCard>
         <ListUsers>
-          <PeopleSummary/>
-          <PeopleSummary/>
-          <PeopleSummary/>
-          <PeopleSummary/>
-          <PeopleSummary/>
-          <PeopleSummary/>
-          <PeopleSummary/>
-          <PeopleSummary/>
-          <PeopleSummary/>
           <PeopleSummary/>
         </ListUsers>
       </main>
