@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    cursor: pointer;
+    :hover{
+        background-color: #0000CC;
+        transition: 0.5s;
+    }
 
     & > img{
         width: 60px;
