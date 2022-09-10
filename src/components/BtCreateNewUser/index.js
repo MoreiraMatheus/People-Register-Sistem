@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CreateNewUser = styled.button`
+export const BtCreateNewUser = styled.button`
   background-color: blue;
   border: none;
   border-radius: 20px;

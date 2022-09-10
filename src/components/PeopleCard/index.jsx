@@ -1,7 +1,7 @@
 import { Wrapper } from "./style";
 import { ImageContainer } from "../ImageContainer";
 import { PeopleInformation } from "../PeopleInformation";
-import { CreateNewUser } from "../CreateNewUser";
+import { BtCreateNewUser } from "../BtCreateNewUser";
 import { userImageSelector } from "../../functions/userImageSelector";
 
 export const PeopleCard = ({People}) => {
@@ -11,7 +11,7 @@ export const PeopleCard = ({People}) => {
         <img src={userImageSelector(People.genero, People.idade)} alt="" />
       </ImageContainer>
       <PeopleInformation People={People}/>
-      <CreateNewUser>Cadastrar usuário</CreateNewUser>
+      <BtCreateNewUser>Cadastrar usuário</BtCreateNewUser>
     </Wrapper>
   )
 }
