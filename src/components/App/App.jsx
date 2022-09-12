@@ -1,40 +1,33 @@
-import { useState, useEffect } from "react";
-
+import { useState, useEffect } from "react"
 import { GlobalStyle } from "../GlobalStyle/GlobalStyle";
 import { PeopleCard } from "../PeopleCard";
 import { ListUsers } from "../ListUsers";
-import { PeopleSummary } from "../PeopleSummary";
 
-const testPeople = {
-  nome: 'Matheus',
-  prof: 'Estudante',
-  hobbie: 'Jogar video Game',
-  idade: 19,
-  genero: 'M',
-  altura: 1.73
-}
+import { localStorageQuery } from "../../functions/localStorageQuery";
 
 function App(){
   const [users, setUsers] = useState([])
+
+  const [currentUser, setCurrentlUser] = useState({})
   
   useEffect(() => {
-    const localStorageQuery = localStorage.getItem('pessoas')
+    const localstorageData = localStorageQuery('pessoas')
 
-    const localStorageQueryJson = JSON.parse(localStorageQuery)
+    setUsers(localstorageData)
 
-    setUsers(localStorageQueryJson)
   },[])
+  
+  useEffect(() => {
+    setCurrentlUser(users[0])
+  }, [users])
 
   return(
     <>
+      {console.log('renderizou')}
       <GlobalStyle/>
       <main>
-        <PeopleCard People={testPeople}/>
-        <ListUsers>
-          {users.map(user => {
-            return (<PeopleSummary key={users.indexOf(user)}People={user}/>)
-          })}
-        </ListUsers>
+        <PeopleCard People={currentUser}/>
+        <ListUsers Users={users}/>
       </main>
     </>
   );

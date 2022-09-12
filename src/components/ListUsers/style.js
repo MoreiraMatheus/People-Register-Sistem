@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ListUsers = styled.div`
+export const Wrapper = styled.div`
     width: 30vw;
     height: 90vh;
     padding: 20px 0 20px 20px;

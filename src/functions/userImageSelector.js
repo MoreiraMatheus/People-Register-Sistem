@@ -9,12 +9,15 @@ export function userImageSelector(gender, age){
       return age < 60 ? userImages.man : userImages.grandfather
     }
   }
-  else{
+  else if(gender === 'F'){
     if(age < 18){
       return userImages.girl
     }
     else{
       return age < 60 ? userImages.woman : userImages.grandmother
     }
+  }
+  else{
+    return userImages.boy
   }
 }
