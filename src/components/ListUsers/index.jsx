@@ -1,4 +1,3 @@
-
 import { Wrapper } from "./style"
 import { PeopleSummary } from '../PeopleSummary'
 
