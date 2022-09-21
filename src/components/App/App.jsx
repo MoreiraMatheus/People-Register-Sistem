@@ -19,9 +19,9 @@ function App(){
     setUsers(localstorageData)
   },[])
   
-  useEffect(changeUser, [users])
+  useEffect(changeCurrentUser, [users])
   
-  function changeUser (userID=1){
+  function changeCurrentUser (userID=1){
     setCurrentlUser(users[userID-1])
   }
 
@@ -29,7 +29,7 @@ function App(){
     <>
       <GlobalStyle/>
         <main>
-        <Contexto.Provider value={{changeUser}}>
+        <Contexto.Provider value={{changeCurrentUser, setUsers}}>
           <PeopleCard People={currentUser}/>
           <ListUsers Users={users}/>
         </Contexto.Provider>
