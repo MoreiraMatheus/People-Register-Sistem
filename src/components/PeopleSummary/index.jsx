@@ -1,9 +1,12 @@
 import { Wrapper } from "./style";
 import { userImageSelector } from "../../functions/userImageSelector";
+
 import { useContext } from "react"
 import { Contexto } from "../App/App";
 
 import { Trash } from 'phosphor-react'
+
+import { deleteUserByID } from '../../functions/deleteUserByID'
 
 export const PeopleSummary = ({id, People}) => {
   const {changeCurrentUser} = useContext(Contexto)
@@ -14,12 +17,17 @@ export const PeopleSummary = ({id, People}) => {
   } = People ?? {genero: 'M', idade: '???', nome: '???'}
 
   return(
-    <Wrapper onClick={() => {changeCurrentUser(id)}}>
-      <img src={userImageSelector(genero, idade)} alt="foto-user" />
+    <Wrapper>
+      <img 
+        src={userImageSelector(genero, idade)}
+        alt="foto-user" 
+        onClick={() => {changeCurrentUser(id)}}
+      />
       <p><span>Nome:</span> {nome}</p>
       <p><span>Idade:</span> {idade}</p>
       <abbr title="Excluir">
-        <Trash
+        <Trash 
+          onClick={() => {deleteUserByID(id)}}
           size={24}
           color={'#ccc'}
         />
