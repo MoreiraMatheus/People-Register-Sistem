@@ -5,7 +5,8 @@ import { ListUsers } from "../ListUsers";
 
 import { localStorageQuery } from "../../functions/localStorageQuery";
 
-export const Contexto = createContext() 
+export const Contexto = createContext()
+
 function App(){
 
   const [users, setUsers] = useState([])
@@ -18,23 +19,21 @@ function App(){
     setUsers(localstorageData)
   },[])
   
-  const changeUser = function(userID=1){
+  useEffect(changeUser, [users])
+  
+  function changeUser (userID=1){
     setCurrentlUser(users[userID-1])
   }
-
-  useEffect(changeUser, [users])
-
-  //trocar de usuário toda vez que selecionarem outro user
 
   return(
     <>
       <GlobalStyle/>
-      <Contexto.Provider value={changeUser}>
         <main>
+        <Contexto.Provider value={{changeUser}}>
           <PeopleCard People={currentUser}/>
           <ListUsers Users={users}/>
+        </Contexto.Provider>
         </main>
-      </Contexto.Provider>
     </>
   );
 }
