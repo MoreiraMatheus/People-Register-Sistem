@@ -8,6 +8,7 @@ import { Trash } from 'phosphor-react'
 
 import { deleteUserByID } from '../../functions/deleteUserByID'
 import { localStorageQuery } from "../../functions/localStorageQuery";
+import { updateUserId } from "../../functions/updateUserId";
 
 export const PeopleSummary = ({id, People}) => {
   const {changeCurrentUser, setUsers} = useContext(Contexto)
@@ -32,8 +33,9 @@ export const PeopleSummary = ({id, People}) => {
       <abbr title="Excluir">
         <Trash 
           onClick={() => {
-            // deleteUserByID(id)
-            setUsers(localStorageQuery('pessoas'))
+            deleteUserByID(id)
+            const currentLocalStorage = localStorageQuery('pessoas')
+            setUsers(updateUserId(currentLocalStorage))
           }}
           size={24}
           color={'#ccc'}

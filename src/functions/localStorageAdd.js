@@ -1,4 +1,5 @@
 import { localStorageQuery } from "./localStorageQuery"
+import { updateUserId } from "./updateUserId"
 
 export function localStorageAdd(key, object){
   try{
@@ -6,7 +7,9 @@ export function localStorageAdd(key, object){
     
     currentLocalStorageObject.push(object)
 
-    const newObjectJson = JSON.stringify(currentLocalStorageObject)
+    const newObject = updateUserId(currentLocalStorageObject)
+
+    const newObjectJson = JSON.stringify(newObject)
 
     localStorage.setItem(key, newObjectJson)
   }

@@ -4,6 +4,7 @@ import { PeopleCard } from "../PeopleCard";
 import { ListUsers } from "../ListUsers";
 
 import { localStorageQuery } from "../../functions/localStorageQuery";
+import { updateUserId } from "../../functions/updateUserId";
 
 export const Contexto = createContext()
 
@@ -16,7 +17,7 @@ function App(){
   useEffect(() => {
     const localstorageData = localStorageQuery('pessoas')
 
-    setUsers(localstorageData)
+    setUsers(updateUserId(localstorageData))
   },[])
   
   useEffect(changeCurrentUser, [users])

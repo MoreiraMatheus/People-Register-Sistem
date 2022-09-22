@@ -9,6 +9,7 @@ import { Contexto } from "../App/App";
 
 import { localStorageAdd } from "../../functions/localStorageAdd";
 import { localStorageQuery } from "../../functions/localStorageQuery";
+import { updateUserId } from "../../functions/updateUserId";
 
 const baseUser = {
   nome: '???',
@@ -44,8 +45,9 @@ export const PeopleCard = ({People}) => {
       <PeopleInformation People={user}/>
       <BtCreateNewUser 
         onClick={() => {
-          // localStorageAdd('pessoas', Jose)
-          setUsers(localStorageQuery('pessoas'))
+          localStorageAdd('pessoas', baseUser)
+          const currentLocalStorage = localStorageQuery('pessoas')
+          setUsers(currentLocalStorage)
         }}
       >
         Cadastrar usuário

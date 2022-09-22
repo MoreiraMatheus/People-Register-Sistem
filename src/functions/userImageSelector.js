@@ -1,4 +1,4 @@
-import * as userImages from '../services/importImages';
+import * as userImages from './importImages';
 
 export function userImageSelector(gender, age){
   if(gender === 'M'){
