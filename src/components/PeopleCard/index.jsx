@@ -20,14 +20,14 @@ const baseUser = {
   id: 99999
 }
 
-const Maria = {
-  nome: 'Maria',
-  prof: 'Estudante',
-  hobbie: 'Jogar Vôlei',
-  idade: 22,
-  genero: 'F',
-  altura: 1.62,
-  id: 2
+const Jose = {
+  nome: 'José',
+  prof: 'Aposentado',
+  hobbie: 'Jogar no bicho',
+  idade: 78,
+  genero: 'M',
+  altura: 1.77,
+  id: 3
 }
 
 export const PeopleCard = ({People}) => {
@@ -44,8 +44,7 @@ export const PeopleCard = ({People}) => {
       <PeopleInformation People={user}/>
       <BtCreateNewUser 
         onClick={() => {
-          alert('vamos adicionar um user')
-          // localStorageAdd('pessoas', Maria)
+          // localStorageAdd('pessoas', Jose)
           setUsers(localStorageQuery('pessoas'))
         }}
       >

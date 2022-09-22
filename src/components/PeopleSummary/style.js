@@ -7,26 +7,37 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    cursor: pointer;
     
     :hover{
         background-color: #0000CC;
         transition: 0.5s;
     }
 
-    & > img{
-        width: 60px;
-        height: 60px;
-        background-color: white;
-        border-radius: 50%;
+    div{
+        width: 80%;
+        display: inherit;
+        justify-content: space-between;
+        align-items: center;
+        cursor: default;
+        
+        img{
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+        }
+    
+        p{
+            color: #ccc;
+            font-weight: bold;
+    
+            span{
+                color: black;
+            }
+        }
     }
 
-    p{
-        color: #ccc;
-        font-weight: bold;
-
-        span{
-            color: black;
-        }
+    abbr{
+        cursor: pointer;
     }
 `

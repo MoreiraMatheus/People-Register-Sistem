@@ -7,9 +7,10 @@ import { Contexto } from "../App/App";
 import { Trash } from 'phosphor-react'
 
 import { deleteUserByID } from '../../functions/deleteUserByID'
+import { localStorageQuery } from "../../functions/localStorageQuery";
 
 export const PeopleSummary = ({id, People}) => {
-  const {changeCurrentUser} = useContext(Contexto)
+  const {changeCurrentUser, setUsers} = useContext(Contexto)
   const {
     genero,
     idade,
@@ -18,16 +19,22 @@ export const PeopleSummary = ({id, People}) => {
 
   return(
     <Wrapper>
-      <img 
-        src={userImageSelector(genero, idade)}
-        alt="foto-user" 
+      <div 
         onClick={() => {changeCurrentUser(id)}}
-      />
-      <p><span>Nome:</span> {nome}</p>
-      <p><span>Idade:</span> {idade}</p>
+      >
+        <img
+          src={userImageSelector(genero, idade)}
+          alt="foto-user"
+        />
+        <p><span>Nome:</span> {nome}</p>
+        <p><span>Idade:</span> {idade}</p>
+      </div>
       <abbr title="Excluir">
         <Trash 
-          onClick={() => {deleteUserByID(id)}}
+          onClick={() => {
+            // deleteUserByID(id)
+            setUsers(localStorageQuery('pessoas'))
+          }}
           size={24}
           color={'#ccc'}
         />
