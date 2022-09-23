@@ -19,14 +19,32 @@ export const Wrapper = styled.div`
     width: 70vw;
     height: 70vh;
     border-radius: 8px;
+    padding-bottom: 16px;
+  }
+`
 
-    button{
-      background-color: #ccc;
-      border: none;
-      border-radius: inherit;
-      align-self: flex-end;
-      cursor: pointer;
-      margin: 8px;
-    }
+export const CloseButton = styled.button`
+  background-color: #ccc;
+  border: none;
+  border-radius: inherit;
+  align-self: flex-end;
+  cursor: pointer;
+  margin: 8px;
+`
+
+export const UserDataWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
+  height: 70%;
+  
+  > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 100%;
   }
 `
