@@ -1,15 +1,15 @@
 import { Wrapper } from "./style";
 import { ImageContainer } from "../ImageContainer";
 import { PeopleInformation } from "../PeopleInformation";
+import { Modal } from "../Modal";
 import { BtCreateNewUser } from "../BtCreateNewUser";
-import { userImageSelector } from "../../functions/userImageSelector";
 
-import { useContext } from "react";
+import { useContext, createContext, useState } from "react";
 import { Contexto } from "../App/App";
 
+import { userImageSelector } from "../../functions/userImageSelector";
 import { localStorageAdd } from "../../functions/localStorageAdd";
 import { localStorageQuery } from "../../functions/localStorageQuery";
-import { updateUserId } from "../../functions/updateUserId";
 
 const baseUser = {
   nome: '???',
@@ -21,17 +21,10 @@ const baseUser = {
   id: 99999
 }
 
-const Jose = {
-  nome: 'José',
-  prof: 'Aposentado',
-  hobbie: 'Jogar no bicho',
-  idade: 78,
-  genero: 'M',
-  altura: 1.77,
-  id: 3
-}
+export const ModalContext = createContext()
 
 export const PeopleCard = ({People}) => {
+  const [openModal, setOpenModal] = useState(false)
 
   const {setUsers} = useContext(Contexto)
 
@@ -45,13 +38,17 @@ export const PeopleCard = ({People}) => {
       <PeopleInformation People={user}/>
       <BtCreateNewUser 
         onClick={() => {
-          localStorageAdd('pessoas', baseUser)
-          const currentLocalStorage = localStorageQuery('pessoas')
-          setUsers(currentLocalStorage)
+          setOpenModal(!openModal)
+          // localStorageAdd('pessoas', baseUser)
+          // const currentLocalStorage = localStorageQuery('pessoas')
+          // setUsers(currentLocalStorage)
         }}
       >
         Cadastrar usuário
       </BtCreateNewUser>
+      <ModalContext.Provider value={{setOpenModal}}>
+        {openModal ? <Modal/> : null}
+      </ModalContext.Provider>
     </Wrapper>
   )
 }
