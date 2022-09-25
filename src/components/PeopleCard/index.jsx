@@ -9,12 +9,12 @@ import { createContext, useState } from "react";
 import { userImageSelector } from "../../functions/userImageSelector";
 
 const baseUser = {
-  nome: '???',
+  name: '???',
   prof: '???',
   hobbie: '???',
-  idade: '???',
-  genero: '???',
-  altura: '???',
+  age: '???',
+  gender: '???',
+  height: '???',
   id: 99999
 }
 
@@ -28,7 +28,7 @@ export const PeopleCard = ({People}) => {
   return(
     <Wrapper>
       <ImageContainer>
-        <img src={userImageSelector(user.genero, user.idade)} alt="" />
+        <img src={userImageSelector(user.gender, user.age)} alt="" />
       </ImageContainer>
       <PeopleInformation People={user}/>
       <BtCreateNewUser 

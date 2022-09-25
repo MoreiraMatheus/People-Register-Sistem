@@ -13,10 +13,10 @@ import { updateUserId } from "../../functions/updateUserId";
 export const PeopleSummary = ({id, People}) => {
   const {changeCurrentUser, setUsers} = useContext(Contexto)
   const {
-    genero,
-    idade,
-    nome
-  } = People ?? {genero: 'M', idade: '???', nome: '???'}
+    gender,
+    age,
+    name
+  } = People ?? {gender: 'M', age: '???', name: '???'}
 
   return(
     <Wrapper>
@@ -24,11 +24,11 @@ export const PeopleSummary = ({id, People}) => {
         onClick={() => {changeCurrentUser(id)}}
       >
         <img
-          src={userImageSelector(genero, idade)}
+          src={userImageSelector(gender, age)}
           alt="foto-user"
         />
-        <p><span>Nome:</span> {nome}</p>
-        <p><span>Idade:</span> {idade}</p>
+        <p><span>Nome:</span> {name}</p>
+        <p><span>Idade:</span> {age}</p>
       </div>
       <abbr title="Excluir">
         <Trash 

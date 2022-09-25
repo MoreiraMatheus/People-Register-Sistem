@@ -15,6 +15,8 @@ export const Modal = () => {
 
   const {setUsers} = useContext(Contexto)
 
+  const modalData = {}
+
   return(
     <Wrapper>
       <div>
@@ -27,22 +29,41 @@ export const Modal = () => {
 
         <UserDataWrapper>
           <div>
-            <ModalInput labelText={'Nome'}/>
-            <ModalInput labelText={'Profissão'}/>
-            <ModalInput labelText={'Hobbie'}/>
+            <ModalInput 
+              labelText={'Nome'} 
+              dataSetFunction={e => modalData.name = e.target.value}
+            />
+            <ModalInput 
+              labelText={'Profissão'}
+              dataSetFunction = {e => modalData.prof = e.target.value}
+            />
+            <ModalInput 
+              labelText={'Hobbie'}
+              dataSetFunction = {e => modalData.hobbie = e.target.value}
+            />
           </div>
           <div>
-            <ModalInput labelText={'Idade'}/>
-            <ModalInput labelText={'Gênero'}/>
-            <ModalInput labelText={'Altura'}/>
+            <ModalInput 
+              labelText={'Idade'}
+              dataSetFunction = {e => modalData.age = e.target.value}
+            />
+            <ModalInput 
+              labelText={'Gênero'}
+              dataSetFunction = {e => modalData.gender = e.target.value}
+            />
+            <ModalInput 
+              labelText={'Altura'}
+              dataSetFunction = {e => modalData.height = e.target.value}
+            />
           </div>
         </UserDataWrapper>
 
         <BtCreateNewUser 
           onClick={() => {
-            localStorageAdd('pessoas', baseUser)
-            const currentLocalStorage = localStorageQuery('pessoas')
-            setUsers(currentLocalStorage)
+            // localStorageAdd('pessoas', baseUser)
+            // const currentLocalStorage = localStorageQuery('pessoas')
+            // setUsers(currentLocalStorage)
+            console.log(modalData)
           }}
         >
           Cadastrar usuário
