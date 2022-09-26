@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BtCreateNewUser = styled.button`
+export const Wrapper = styled.button`
   background-color: blue;
   border: none;
   border-radius: 20px;

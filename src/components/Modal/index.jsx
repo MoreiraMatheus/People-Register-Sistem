@@ -6,12 +6,13 @@ import { ModalInput } from '../ModalInput'
 
 import { localStorageAdd } from "../../functions/localStorageAdd"
 import { localStorageQuery } from "../../functions/localStorageQuery"
+import { validateUserRequiredFields } from "../../functions/validateUserRequiredFields"
 
 import { ModalContext } from "../PeopleCard"
 import { Contexto } from "../App/App"
 
 export const Modal = () => {
-  const {setOpenModal, baseUser} = useContext(ModalContext)
+  const {setOpenModal} = useContext(ModalContext)
 
   const {setUsers} = useContext(Contexto)
 
@@ -45,6 +46,7 @@ export const Modal = () => {
           <div>
             <ModalInput 
               labelText={'Idade'}
+              inputType='number'
               dataSetFunction = {e => modalData.age = e.target.value}
             />
             <ModalInput 
@@ -53,21 +55,25 @@ export const Modal = () => {
             />
             <ModalInput 
               labelText={'Altura'}
+              inputType=''
               dataSetFunction = {e => modalData.height = e.target.value}
             />
           </div>
         </UserDataWrapper>
 
-        <BtCreateNewUser 
+        <BtCreateNewUser
           onClick={() => {
-            // localStorageAdd('pessoas', baseUser)
-            // const currentLocalStorage = localStorageQuery('pessoas')
-            // setUsers(currentLocalStorage)
-            console.log(modalData)
+            if(validateUserRequiredFields(modalData)){
+              localStorageAdd('pessoas', modalData)
+              const currentLocalStorage = localStorageQuery('pessoas')
+              setUsers(currentLocalStorage)
+              setOpenModal()
+            }
+            else{
+              alert('campos obrigatórios não preenchidos')
+            }
           }}
-        >
-          Cadastrar usuário
-        </BtCreateNewUser>
+        />
       </div>
     </Wrapper>
   )

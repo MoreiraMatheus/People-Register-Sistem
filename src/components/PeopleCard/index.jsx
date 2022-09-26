@@ -35,10 +35,8 @@ export const PeopleCard = ({People}) => {
         onClick={() => {
           setOpenModal(!openModal)
         }}
-      >
-        Cadastrar usuário
-      </BtCreateNewUser>
-      <ModalContext.Provider value={{setOpenModal, baseUser}}>
+      />
+      <ModalContext.Provider value={{setOpenModal}}>
         {openModal ? <Modal/> : null}
       </ModalContext.Provider>
     </Wrapper>
