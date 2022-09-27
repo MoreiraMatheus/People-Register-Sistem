@@ -16,7 +16,7 @@ export const Modal = () => {
 
   const {setUsers} = useContext(Contexto)
 
-  const modalData = {}
+  const modalData = {gender: 'M'}
 
   return(
     <Wrapper>
@@ -51,11 +51,13 @@ export const Modal = () => {
             />
             <ModalInput 
               labelText={'Gênero'}
+              selectType
+              selectOptions={['Masculino', 'Feminino']}
               dataSetFunction = {e => modalData.gender = e.target.value}
             />
             <ModalInput 
               labelText={'Altura'}
-              inputType=''
+              inputType='number'
               dataSetFunction = {e => modalData.height = e.target.value}
             />
           </div>
