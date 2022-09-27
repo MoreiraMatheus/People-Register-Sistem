@@ -17,3 +17,11 @@ export const Wrapper = styled.div`
         width: 20px;
     }
 `
+
+export const EmptyUserlist = styled.span`
+    width: 100%;
+    margin-top: 20%;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+`
