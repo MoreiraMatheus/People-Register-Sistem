@@ -25,9 +25,17 @@ export const Label = styled.span`
   margin-left: 10%;
 `
 
-export const Input = styled.input`${templateStyle}`
+export const Input = styled.input`
+  ${templateStyle}
+  ::-webkit-outer-spin-button, ::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+  }
+`
 
-export const Select = styled.select`${templateStyle}`
+export const Select = styled.select`
+  ${templateStyle}
+  -webkit-appearance: none;
+`
 
 export const Option = styled.option`
   font-weight: bold;
