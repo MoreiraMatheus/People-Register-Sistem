@@ -15,9 +15,17 @@ function App(){
   const [currentUser, setCurrentlUser] = useState({})
 
   useEffect(() => {
-    const localstorageData = localStorageQuery('pessoas')
+    const localstorageData = localStorageQuery('pessoas') 
 
-    setUsers(updateUserId(localstorageData))
+    if(localstorageData === null){
+      const baseArray = []
+      const baseArrayJson = JSON.stringify(baseArray)
+      localStorage.setItem('pessoas', baseArrayJson)
+    }
+    else{
+      setUsers(updateUserId(localstorageData))
+    }
+
   },[])
   
   useEffect(changeCurrentUser, [users])

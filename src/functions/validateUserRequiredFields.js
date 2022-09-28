@@ -2,7 +2,6 @@ export function validateUserRequiredFields(user){
   const requiredfields = ['name', 'age', 'gender', 'height']
   const userKeys = Object.keys(user)
 
-  console.clear()
   if(!userKeys.includes(requiredfields[0])){
     return false
   }
