@@ -12,6 +12,13 @@ export const Wrapper = styled.div`
     padding-top: 15vh;
     color: #333;
 
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+    @media (max-width: 450px) {
+        margin-top: 10vh;
+    }
+
     & > div{
         display: inherit;
         flex-direction: column;
@@ -20,11 +27,23 @@ export const Wrapper = styled.div`
         width: 40%;
         height: 70%;
         margin-top: -3%;
-        /* background-color: yellow; */
+
+        @media (max-width: 600px) {
+            margin-top: -5%;
+            width: 100%;
+            justify-content: center;
+        }
 
         & > p{
             font-weight: 600;
+            width: 100%;
     
+            @media (max-width: 750px) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }   
+
             & > span{
                 font-weight: 800;
                 color: blue;

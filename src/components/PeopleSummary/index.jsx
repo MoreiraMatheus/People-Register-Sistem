@@ -27,8 +27,10 @@ export const PeopleSummary = ({id, People}) => {
           src={userImageSelector(gender, age)}
           alt="foto-user"
         />
-        <p><span>Nome:</span> {name}</p>
-        <p><span>Idade:</span> {age}</p>
+        <div>
+          <p><span>Nome:</span> {name}</p>
+          <p><span>Idade:</span> {age}</p>
+        </div>
       </div>
       <abbr title="Excluir">
         <Trash 

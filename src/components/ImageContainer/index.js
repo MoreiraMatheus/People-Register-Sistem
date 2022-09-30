@@ -10,6 +10,15 @@ export const ImageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 600px) {
+        width: 25vh;
+        height: 25vh;
+    }
+    @media (max-width: 450px) {
+        width: 20vh;
+        height: 20vh;
+    }
     
     img{
         width: inherit;
