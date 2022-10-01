@@ -1,8 +1,15 @@
 import styled from 'styled-components'
 
+export const ShowUserButton = styled.div`
+    button{
+        border: none;
+        background-color: inherit;
+    }
+`
+
 export const Wrapper = styled.div`
-    width: 30vw;
-    height: 90vh;
+    width: ${props => props.config};
+    height: 100vh;
     padding: 20px 0 20px 20px;
     background-color: #d9d9d9;
     display: flex;
