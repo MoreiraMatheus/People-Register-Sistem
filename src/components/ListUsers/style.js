@@ -8,19 +8,19 @@ export const ShowUserButton = styled.div`
 `
 
 export const Wrapper = styled.div`
-    width: ${props => props.config};
-    height: 100vh;
+    width: ${props => props.config[0]};
+    height: ${props => props.config[1]};
     padding: 20px 0 20px 20px;
-    background-color: #d9d9d9;
+    background-color: rgba(100, 100, 100, 0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     row-gap: 20px;
     overflow-y: scroll;
+    ${props => props.config[2]};
 
     ::-webkit-scrollbar{
-        background-color: #d9d9d9;
         width: 20px;
     }
 `

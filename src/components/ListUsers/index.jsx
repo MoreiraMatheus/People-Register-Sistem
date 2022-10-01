@@ -7,21 +7,21 @@ import { Eye, EyeSlash } from 'phosphor-react'
 
 export const ListUsers = ({Users}) => {
 
-  const [showUser, setShowUser] = useState(true)
+  const [showUsers, setShowUsers] = useState(true)
 
-  const [wrapperConfig, setWrapperConfig] = useState('30vw')
+  const [wrapperConfig, setWrapperConfig] = useState(['80vw', '100vh', 'position: absolute; top:0; right: 0;'])
 
   return(
     <Wrapper config={wrapperConfig}>
       <ShowUserButton>
         <button>
-          {showUser ?
+          {showUsers ?
             <Eye
               size={24}
               weight='bold'
               onClick={()=>{
-                setShowUser(!showUser)
-                setWrapperConfig('auto')
+                setShowUsers(!showUsers)
+                setWrapperConfig(['auto', 'auto', 'position: absolute; top:0; right: 0;'])
               }}
               cursor='pointer'
               />:
@@ -29,15 +29,15 @@ export const ListUsers = ({Users}) => {
               size={24}
               weight='bold'
               onClick={()=>{
-                setShowUser(!showUser)
-                setWrapperConfig('30vw')
+                setShowUsers(!showUsers)
+                setWrapperConfig(['80vw', '100vh', 'position: absolute; top:0; right: 0;'])
               }}
               cursor='pointer'
             />
           }
         </button>
       </ShowUserButton>
-      {showUser?
+      {showUsers?
         Users.length === 0 ?
         <EmptyUserlist>Usuários cadastrados aparecerão aqui</EmptyUserlist> :
         Users.map(user => {
