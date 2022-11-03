@@ -7,9 +7,9 @@ import { Eye, EyeSlash } from 'phosphor-react'
 
 export const ListUsers = ({Users}) => {
 
-  const [showUsers, setShowUsers] = useState(true)
+  const [showUsers, setShowUsers] = useState(false)
 
-  const [wrapperConfig, setWrapperConfig] = useState(['80vw', '100vh', 'position: absolute; top:0; right: 0;'])
+  const [wrapperConfig, setWrapperConfig] = useState(['auto', 'auto'])
 
   return(
     <Wrapper config={wrapperConfig}>
@@ -21,16 +21,16 @@ export const ListUsers = ({Users}) => {
               weight='bold'
               onClick={()=>{
                 setShowUsers(!showUsers)
-                setWrapperConfig(['auto', 'auto', 'position: absolute; top:0; right: 0;'])
+                setWrapperConfig(['auto', 'auto'])
               }}
               cursor='pointer'
-              />:
-              <EyeSlash
+            />:
+            <EyeSlash
               size={24}
               weight='bold'
               onClick={()=>{
                 setShowUsers(!showUsers)
-                setWrapperConfig(['80vw', '100vh', 'position: absolute; top:0; right: 0;'])
+                setWrapperConfig(['80vw', '100vh'])
               }}
               cursor='pointer'
             />

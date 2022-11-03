@@ -18,7 +18,9 @@ export const Wrapper = styled.div`
     justify-content: flex-start;
     row-gap: 20px;
     overflow-y: scroll;
-    ${props => props.config[2]};
+    position: absolute;
+    top: 0;
+    right: 0;
 
     ::-webkit-scrollbar{
         width: 20px;
